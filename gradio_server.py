@@ -220,7 +220,7 @@ with gr.Blocks(title="RecurrentGPT", css="footer {visibility: hidden}", theme="d
 
     Co-pilot for writing a Galgame story. The AI will generate a story based on the input and provide three options for the next step. The user can choose one of the options to continue the story. The AI will then generate the next step based on the user's choice.
 
-    Created by **Shirakami Lynricsy** & AIWaves Team
+    Developed by **Shirakami Lynricsy**
     """)
     with gr.Tab("自动剧情（呜呜暂时不太好用）"):
         with gr.Row():
