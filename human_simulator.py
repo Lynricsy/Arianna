@@ -1,4 +1,3 @@
-
 from utils import get_content_between_a_b, parse_instructions,get_api_response
 
 class Human:

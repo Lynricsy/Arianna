@@ -3,3 +3,5 @@ response_*.txt
 response.txt
 __pycache__
 *.aide.py
+Arianna/
+.env

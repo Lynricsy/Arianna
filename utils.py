@@ -1,27 +1,12 @@
 import re
 import openai
 from openai import OpenAI
+from decouple import config
 
-# api_key = "sk-Ba9FRGfBuXVsheYdVT6QPVBDwNU8twOSyLMAi4ybHG8Mf1Rn"
-# api_base = "https://voapi.heartbell.top/v1"
-# def get_api_response(content: str, max_tokens=None):
-#     client = OpenAI(api_key=api_key,base_url=api_base)
-#     response = openai.ChatCompletion.create(
-#         model='claude-3-5-sonnet-20240620',
-#         messages=[{
-#             'role': 'system',
-#             'content': '你是一个有帮助且富有创造力的Galgame(视觉小说)写作助手。Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事中只能出现对话（占绝大部分篇幅）、环境描写和主角的心理活动。注意一定要大量的角色语言。角色的语言要富有个性，生动灵活，不要过于死板。角色语言这样写:”某人:xxxx“每一句角色语言都要单独一行，类似一个剧本。除了规定的格式内容外，请使用汉语来写小说。'
-#         }, {
-#             'role': 'user',
-#             'content': content,
-#         }],
-#         temperature=0.4,  
-#         max_tokens=max_tokens
-#     )
-    
-#     return response['choices'][0]['message']['content']
-api_key = "sk-Ba9FRGfBuXVsheYdVT6QPVBDwNU8twOSyLMAi4ybHG8Mf1Rn"
-api_base = "https://voapi.heartbell.top/v1"
+my_variable = config('MY_VARIABLE', default='default_value')
+
+api_key = config('OPENAI_API_KEY', default='sk-xxxx')
+api_base = config('OPENAI_BASE_URL', default='https://api.openai.com/v1')
 def get_api_response(content: str, max_tokens=None):
     client = OpenAI(api_key=api_key,base_url=api_base)
     response = client.chat.completions.create(
