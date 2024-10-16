@@ -15,7 +15,6 @@ pip install -r ./requirements.txt
 python gradio_server.py
 ```
 
-
 ## Citation
 
 ```text
