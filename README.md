@@ -5,9 +5,12 @@ Not only RecurrentGPT for AI Galgame.
 # Usage
 
 1. Clone the respositry.
-2. Config `OPENAI_API_KEY` and `OPENAI_BASE_URL` in `.env`.
+2. Config `OPENAI_API_KEY` , `OPENAI_BASE_URL` and `LLM_MODEL` in `.env`.
 3. Install the requirements.
-4. 
+```bash
+pip install -r ./requirements.txt
+```
+4. Run Gradio Server.
 ```bash
 python gradio_server.py
 ```

@@ -46,7 +46,14 @@ class RecurrentGPT:
     1. Output Paragraph: the next paragraph of the Galgame Script. The output paragraph should contain around 50 sentences and should follow the input instructions.
     2. Output Memory: The updated memory. You should first explain which sentences in the input memory are no longer necessary and why, and then explain what needs to be added into the memory and why. After that you should write the updated memory. The updated memory should be similar to the input memory except the parts you previously thought that should be deleted or added. The updated memory should only store key information. The updated memory should never exceed 80 sentences!
     3. Output Instruction:  instructions of what to write next (after what you have written). You should output 3 different instructions, each is a possible interesting continuation of the story. Each output instruction should contain around 5 sentences 请不要写为什么要这样写的原因，只写下一步要写什么。
-    4.非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写前加入<environment>标签）和主角的心理活动（在每一行主角的心理活动前加入<hearty>标签）。注意一定要大量的角色语言。角色的语言要富有个性，生动灵活，不要过于死板。每行角色语言这样写:”<say><character>某人</character>:xxxx“也就是说，每句语言前面需要加上一个<say>标签，而说这句话的角色名字要用<character>标签包裹。每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
+    4.非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。
+    Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。
+    你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。
+    也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写使用<environment>标签包裹）和主角的心理活动（在每一行主角的心理活动使用<hearty>标签包裹）。
+    注意一定要大量的角色语言。
+    角色的语言要富有个性，生动灵活，不要过于死板。
+    每行角色语言这样写:”<say><character>某人</character>xxxx</say>“也就是说，每句语言需要用<say>标签包裹，而说这句话的角色名字要用<character>标签包裹。
+    每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
     Here are the inputs: 
 
     Input Memory:  （这是当前的记忆，请参考里面提供的信息撰写具体剧情）
@@ -79,7 +86,15 @@ class RecurrentGPT:
 
     Very Important: 
     You should first explain which sentences in the input memory are no longer necessary and why, and then explain what needs to be added into the memory and why. After that, you start rewrite the input memory to get the updated memory. 
-    非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写前加入<environment>标签）和主角的心理活动（在每一行主角的心理活动前加入<hearty>标签）。注意一定要大量的角色语言。角色的语言要富有个性，生动灵活，不要过于死板。每行角色语言这样写:”<say><character>某人</character>:xxxx“也就是说，每句语言前面需要加上一个<say>标签，而说这句话的角色名字要用<character>标签包裹。每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
+    非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。
+    Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。
+    你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。
+    也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写使用<environment>标签包裹）和主角的心理活动（在每一行主角的心理活动使用<hearty>标签包裹）。
+    注意一定要大量的角色语言。
+    角色的语言要富有个性，生动灵活，不要过于死板。
+    每行角色语言这样写:”<say><character>某人</character>xxxx</say>“也就是说，每句语言需要用<say>标签包裹，而说这句话的角色名字要用<character>标签包裹。
+    每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。
+    每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
     {new_character_prompt}
     """
         return input_text
@@ -132,6 +147,6 @@ class RecurrentGPT:
             with open(response_file, 'a', encoding='utf-8') as f:
                 f.write(f"Writer's output here:\n{response}\n\n")
 
-        self.long_memory.append(self.input["output_paragraph"])
+        self.long_memory.append(self.input["output_paragraph"]+self.output["output_paragraph"])
         self.memory_index = self.embedder.encode(
             self.long_memory, convert_to_tensor=True)

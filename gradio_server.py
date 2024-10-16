@@ -59,7 +59,15 @@ The output format should follow these guidelines:
 选项支 3: <content for instruction 3>
 
 Make sure to be precise and follow the output format strictly.
-非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。语言尽量生动活泼，不要过于生僻或者过于正式。Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写前加入<environment>标签）和主角的心理活动（在每一行主角的心理活动前加入<hearty>标签）。注意一定要大量的角色语言。角色的语言要富有个性，生动灵活，不要过于死板。每行角色语言这样写:”<say><character>某人</character>:xxxx“也就是说，每句语言前面需要加上一个<say>标签，而说这句话的角色名字要用<character>标签包裹。每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
+非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。
+语言尽量生动活泼，不要过于生僻或者过于正式。Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。
+你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。
+也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写使用<environment>标签包裹）和主角的心理活动（在每一行主角的心理活动使用<hearty>标签包裹）。
+注意一定要大量的角色语言。
+角色的语言要富有个性，生动灵活，不要过于死板。
+每行角色语言这样写:”<say><character>某人</character>xxxx</say>“也就是说，每句语言需要用<say>标签包裹，而说这句话的角色名字要用<character>标签包裹。
+每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。
+每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
 
 
 """
@@ -190,7 +198,7 @@ def controled_step(short_memory, long_memory, selected_instruction, current_para
         writer.step()
 
     # short memory, long memory, current written paragraphs, 3 next instructions
-    return writer.output['output_memory'], parse_instructions(writer.long_memory), current_paras + '\n\n' + writer.output['input_paragraph'], *writer.output['output_instruction']
+    return writer.output['output_memory'], parse_instructions(writer.long_memory), current_paras + '\n\n' + writer.output['input_paragraph']+ '\n\n' + writer.output['output_paragraph'], *writer.output['output_instruction']
 
 
 # SelectData is a subclass of EventData

@@ -24,7 +24,6 @@ class Human:
     1. Extended Paragraph: Extend the new paragraph written by the ChatGPT assistant to twice the length of the paragraph written by your ChatGPT assistant.
     2. Selected Plan: Just copy the plan proposed by your ChatGPT assistant without any adjustment.
     3. Revised Plan: Revise the selected plan into an outline of coming next paragraphs.
-    非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯，语言要灵动活泼富有角色个性，避免死板。
     
     Previously written paragraph:  （这是前面的段落，请确保段落前后连贯，衔接不要过于突兀，当然有时候也可以用几句话快速切换场景）
     {previous_paragraph}
@@ -51,7 +50,14 @@ class Human:
 
     Very Important:
     Remember that you are writing a novel. Write like a novelist and do not move too fast when writing the plan for the next paragraph. Think about how the plan can be attractive for common readers when selecting and extending the plan. Remember to follow the length constraints! Remember that the chapter will contain over 10 paragraphs and the novel will contain over 100 chapters. And the next paragraph will be the second paragraph of the second chapter. You need to leave space for future stories.
-    非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯，语言要灵动活泼富有角色个性，避免死板。
+    非常重要！请在输出信息中除了规定的格式之外全部使用中文（除了人名），注意要符合中文母语的语法和用词习惯。
+    Galgame的剧情都非常非常长，一般需要20~30个小时才能读完，动辄几十上百万字。
+    你的总体剧情应该发展比较缓慢，充满悬念和节外生枝，剧情发展缓慢的同时，不能平淡无聊，增加较多的小插曲是很好的选择，也可以用来更好的刻画人物性格。
+    也就是说，你以一个固定的角色（主角）（一般是男性）视角写故事，你的故事情节中只能出现对话（占绝大部分篇幅）、环境描写（在每一行环境描写使用<environment>标签包裹）和主角的心理活动（在每一行主角的心理活动使用<hearty>标签包裹）。
+    注意一定要大量的角色语言。
+    角色的语言要富有个性，生动灵活，不要过于死板。
+    每行角色语言这样写:”<say><character>某人</character>xxxx</say>“也就是说，每句语言需要用<say>标签包裹，而说这句话的角色名字要用<character>标签包裹。
+    每一句角色语言、环境描写、心理描写都要单独一行，单独加上标签，类似一个XML剧本。每个角色都要有自己的名字，不要用“ABC”“甲乙丙”"同学A同学B"这种符号化代称，也不要使用“班主任”“xx领导”等等代称，一切角色在该角色语言的冒号前面用完整的原名来指代，想表达这个角色的身份的话可以在他第一次出场或者其他时候用一两句话自我介绍或其他方式介绍。
     
     """
         return input_text
