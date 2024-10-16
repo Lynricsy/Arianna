@@ -88,7 +88,6 @@ def get_init(init_text=None,text=None,response_file="response.txt"):
     if paragraphs['Outline'] == '':
         paragraphs['Outline'] = get_content_between_a_b('概述:','段落',response)
 
-
     return paragraphs
 
 def get_chatgpt_response(model,prompt):
