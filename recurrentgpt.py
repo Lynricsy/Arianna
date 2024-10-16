@@ -76,7 +76,7 @@ class RecurrentGPT:
     Rational: <string that explain how to update the memory>;
     Updated Memory: <string of updated memory>, around 50 sentences
 
-    Output Instruction: 
+    Output Instruction: （注意主要故事情节进展一定一定要非常非常慢，可以多写一些与主要情节关系不那么紧密的情节。）
     Instruction 1: <content for instruction 1>, around 5 sentences
     Instruction 2: <content for instruction 2>, around 5 sentences
     Instruction 3: <content for instruction 3>, around 5 sentences
