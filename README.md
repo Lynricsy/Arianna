@@ -1,6 +1,6 @@
 # Arianna
 
-Not only RecurrentGPT for AI Galgame.
+GalGame. Redifined with GenAI. </>
 
 # Usage
 
